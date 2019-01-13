@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # protect these routes; only logged in users can access these actions
   before_action :authorize, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -13,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to new_session_path
     # else
-    #   something
+      # flash[:error]
     end
   end
 
@@ -21,12 +22,22 @@ class UsersController < ApplicationController
   end
 
   def update
+    # patch to 'users/:id'
   end
 
   def destroy
   end
 
   def show
+    # current_user
+    # binding.pry
+    if params[:id].to_i == current_user.id
+      current_user
+    # protect routes when trying to access other users info while logged in
+    else
+      # render 404 or redirect back to root or login or whatever you want
+      redirect_to root_path
+    end
   end
 
   private

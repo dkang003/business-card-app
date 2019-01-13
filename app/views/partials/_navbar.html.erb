@@ -1,0 +1,20 @@
+<ul class="nav">
+  <li class="nav-item">
+    <%= link_to 'Home', root_path, class: 'nav-link' %>
+  </li>
+<% if logged_in? %>
+    <li class="nav-item">
+        <a class="nav-link disabled">Logged In As: <%= current_user.name %> </a>
+    </li>
+    <li class="nav-item">
+        <%= link_to 'Log Out', logout_path, method: 'delete', class: 'nav-link' %>
+    </li>
+<% else %>
+    <li class="nav-item">
+        <%= link_to 'Sign Up', new_user_path, class: 'nav-link' %>
+    </li>
+    <li class="nav-item">
+        <%= link_to 'Sign In', new_session_path, class: 'nav-link' %>
+    </li>
+    </ul>
+<% end %>    
