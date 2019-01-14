@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authorize, only: [:show, :edit, :update, :destroy]
 
   def index
+    render 'public/index'
   end
 
   def new
@@ -33,6 +34,10 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to root_path
   end
 
   def show
