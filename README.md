@@ -1,24 +1,22 @@
-# README
+#Business Cards App
+-------
+## What is it?
+An app where users can exchange digital business cards (contact information) and keep track of the professional people they have met.  This would ideally work on mobile.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Technologies Used:
+HTML5 | CSS3 | Ruby | Ruby on Rails | Git | Github | Trello | PostgreSQL | BCrypt
 
-Things you may want to cover:
+## ERD
+![Imgur](https://i.imgur.com/9sYxyl5.jpg)
 
-* Ruby version
+## Install Server
 
-* System dependencies
+## Gems Installed
 
-* Configuration
+## Wireframes
 
-* Database creation
+## Screenshots
 
-* Database initialization
+## Some problems I ran into:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Things I didn't get to do/finish:
