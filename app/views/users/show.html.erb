@@ -1,5 +1,18 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
-<%= current_user.name %>
-<%= current_user.email %>
+<div>
+    <h1>My Business Card</h1>
+    <%= current_user.cards.first.name %>
+    <%= current_user.cards.first.email %>
+    <%= link_to "Edit My Info", edit_user_card_path(current_user.id, current_user.cards[0].id) %>
+</div>
+
+<div>
+    <h1>My Contacts</h1>
+    <% current_user.cards.each do |card| %>
+        <%= card.name %>
+        <%= card.email %>
+        <%= link_to "View this card", user_card_path(current_user.id, card.id) %>
+    <% end %>
+</div>
 <%= link_to "Edit My Profile", edit_user_path %>

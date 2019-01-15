@@ -1,0 +1,59 @@
+<h1>Cards#edit</h1>
+<p>Find me in app/views/cards/edit.html.erb</p>
+<%= form_for [@user, @card] do |form| %>
+    <p>
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+    </p>
+    <p>
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+    </p>
+    <p>
+        <%= form.label :website %>
+        <%= form.text_field :website %>
+    </p>
+    <p>
+        <%= form.label :phone %>
+        <%= form.text_field :phone %>
+    </p>
+    <p>
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+    </p>
+    <p>
+        <%= form.label :facebook %>
+        <%= form.text_field :facebook %>
+    </p>
+    <p>
+        <%= form.label :twitter %>
+        <%= form.text_field :twitter %>
+    </p>
+    <p>
+        <%= form.label :linkedin %>
+        <%= form.text_field :linkedin %>
+    </p>
+    <p>
+        <%= form.label :insta %>
+        <%= form.text_field :insta %>
+    </p>
+    <p>
+        <%= form.label :github %>
+        <%= form.text_field :github %>
+    </p>
+    <p>
+        <%= form.label :company %>
+        <%= form.text_field :company %>
+    </p>
+    <p>
+        <%= form.label :logo %>
+        <%= form.text_field :logo %>
+    </p>
+    <p>
+        <%= form.label :image %>
+        <%= form.text_field :image %>
+    </p>
+    <p>
+        <%= form.submit %>
+    </p>   
+<% end %>

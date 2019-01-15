@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in?
+    helper_method :current_user, :logged_in?, :render_404
 
     def current_user
         @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
     def authorize
         redirect_to new_session_path unless logged_in?
     end
+
 end

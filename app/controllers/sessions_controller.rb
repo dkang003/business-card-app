@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       # redirect back to login page
+      flash[:errors] = "Invalid Login Credentials"
       redirect_to new_session_path
     end
   end

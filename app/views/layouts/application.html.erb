@@ -11,6 +11,10 @@
   </head>
 
   <body>
+  <% if flash[:errors] %>
+    <h1 style="color:red;"><%= flash[:errors] %></h1>
+  <% end %>
+  
   <%= render 'partials/navbar' %>
     <div class="container">
       <%= yield %>

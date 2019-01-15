@@ -1,0 +1,11 @@
+<h1>Cards#show</h1>
+
+<div>
+    <h3>Name</h3>
+    <%= @card.name %>
+    <h3>Email</h3>
+    <%= @card.email %>
+</div>
+
+<%= link_to "Remove from my contacts", user_card_path(current_user, @card), method: :delete,
+ data: { confirm: "Are you sure?" } %>
