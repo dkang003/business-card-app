@@ -1,20 +1,19 @@
-<ul class="nav">
-  <li class="nav-item">
-    <%= link_to 'Home', root_path, class: 'nav-link' %>
-  </li>
-<% if logged_in? %>
-    <li class="nav-item">
-        <a class="nav-link disabled">Logged In As: <%= current_user.name %> </a>
-    </li>
-    <li class="nav-item">
-        <%= link_to 'Log Out', logout_path, method: 'delete', class: 'nav-link' %>
-    </li>
-<% else %>
-    <li class="nav-item">
-        <%= link_to 'Sign Up', new_user_path, class: 'nav-link' %>
-    </li>
-    <li class="nav-item">
-        <%= link_to 'Sign In', new_session_path, class: 'nav-link' %>
-    </li>
-    </ul>
-<% end %>    
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+  <% if logged_in? %>
+    <div class="navbar-start">
+      <p class="navbar-item">Logged In As: <%= current_user.name %> </p> 
+    </div>
+    <div class="navbar-end">
+      <%= link_to "My Profile", user_path(current_user.id), class: "navbar-item button is-light" %>
+      <%= link_to 'Log Out', logout_path, method: 'delete', class: "navbar-item button is-light" %>
+    </div>  
+    <% end %>
+  </div>
+</nav>

@@ -9,9 +9,8 @@ class CardsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @card = @user.cards.create(card_params)    
-    if @card.save && @user.cards.length == 0
-      session[:user_id] = @user.id
+    @card = @user.cards.new(card_params)    
+    if @card.save
       redirect_to user_path(@user)
     else
       flash[:errors] = "Could not create your card, please try again."
