@@ -11,9 +11,14 @@
       <p class="navbar-item">Logged In As: <%= current_user.name %> </p> 
     </div>
     <div class="navbar-end">
-      <%= link_to "My Profile", user_path(current_user.id), class: "navbar-item button is-light" %>
-      <%= link_to 'Log Out', logout_path, method: 'delete', class: "navbar-item button is-light" %>
-    </div>  
-    <% end %>
+      <%= link_to "My Profile", user_path(current_user.id), class: "navbar-item" %>
+      <%= link_to "Edit My Profile", edit_user_path, class:'navbar-item' %>
+      <%= link_to 'Log Out', logout_path, method: 'delete', class: "navbar-item" %>
+    </div> 
+  <% else %> 
+    <div class="navbar-start">
+    <%= link_to 'Home', root_path, class: "navbar-item" %>
+    </div>
+  <% end %>
   </div>
 </nav>
