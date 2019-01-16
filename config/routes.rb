@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :cards
   end
 
-  post '/cards/search' => 'cards#search', as: :cards_search
+  post '/users/:user_id/cards/search' => 'cards#search', as: :cards_search
 
   resources :sessions, only: [:new, :create]
   delete '/logout' => 'sessions#destroy', as: :logout

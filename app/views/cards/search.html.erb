@@ -1,0 +1,38 @@
+<h1>Searched Cards</h1>
+<ul>
+<% if @cards.length == 0 %>
+    <p>We couldn't find any cards that match.</p>
+<% else %>
+    <% @cards.each do |card| %>
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                <img src="<%= card.image %>" alt="Placeholder image">
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                        <img src="<%= card.logo %>" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4"><%= card.name %></p>
+                        <p class="subtitle is-6"><%= card.email %></p>
+                    </div>
+                </div>
+
+                <div class="content">
+                <% card.attributes.each do |k, v| %>
+                    <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' && k != 'image' %>
+                       <p class="content is-small"><%= k.capitalize %>: <%= v %></p>
+                    <% end %>
+                <% end %>
+                
+                </div>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+</ul>

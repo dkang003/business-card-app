@@ -19,19 +19,14 @@
         <div class="column is-4"></div>
 
         <div class="column is-4">
-
-
-        <div class="control">
-            
-            <%= form_tag(cards_search_path) do %>
-              <%= label_tag "Enter a name to search:" %>
-              <%= search_field_tag "search" %>
-              <%= submit_tag 'Search'%>
-            <% end %>
-                
-              
+         
+          <%= form_tag(cards_search_path(current_user)) do %>
+            <%= label_tag "Enter a name to search:" %>
+            <%= search_field_tag "search" %>
+            <%= submit_tag 'Search'%>
+          <% end %>
+          
         </div>
-
       </div>
     </div>
 </div>

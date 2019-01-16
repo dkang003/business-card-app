@@ -1,18 +1,11 @@
 class CardsController < ApplicationController
   def index
-    # if params[:search]
-    #   # binding.pry
-    #   @other_user = User.where("name LIKE ?", "%#{params[:search]}%")
-    # else
-    #   @other_user = User.all
-    # end
     @cards = Card.all
   end
 
   def search 
     search_term = params[:search]
     @cards = Card.where(name: search_term).or(Card.where(email: search_term))
-    binding.pry
   end
 
   def new
