@@ -4,7 +4,7 @@
 An app where users can exchange digital business cards (contact information) and keep track of the professional people they have met.  This would ideally work on mobile.
 
 ## Technologies Used:
-HTML5 | CSS3 | Ruby | Ruby on Rails | Git | Github | Trello | PostgreSQL | BCrypt
+HTML5 | CSS3 | Ruby | Ruby on Rails | Git | Github | Trello | PostgreSQL | BCrypt | Bulma
 
 ## ERD
 ![Imgur](https://i.imgur.com/9sYxyl5.jpg)
@@ -25,5 +25,7 @@ BCrypt | pry-rails
 ## Screenshots
 
 ## Some problems I ran into:
+1. Getting the forms to work with Bulma took a lot of time
+2. Figuring out how to pass data to the form_for helpers in ERB, especially with the nested resources (Card#edit)
 
 ## Things I didn't get to do/finish:

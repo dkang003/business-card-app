@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   before_action :authorize, only: [:show, :edit, :update, :destroy]
 
   def index
-    render 'public/index'
   end
 
   def new
@@ -44,8 +43,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @users = User.all
     if params[:id].to_i == current_user.id
       current_user
+
     # protect routes when trying to access other users info while logged in
     else
       flash[:errors] = "Unauthorized"

@@ -7,30 +7,53 @@
     
     <div class="block">
       <div class="columns">
-        <div class="column is-4 box">
+        <div class="column is-4 box", style="background-image:url(<%= current_user.cards.first.image %>); background-position:center; background-size:cover;">
           <% current_user.cards.first.attributes.each do |k, v| %>
-            <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' %>
+            <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' && k != 'image' %>
                <p class="content is-small"><%= k.capitalize %>: <%= v %></p>
             <% end %>
           <% end %>
           <%= link_to "Edit My Info", edit_user_card_path(current_user.id, current_user.cards[0].id), class: 'button is-light content is-small' %>
         </div>
+
+        <div class="column is-4"></div>
+
+        <div class="column is-4">
+
+
+        <div class="control">
+            
+            <%= form_tag(cards_search_path) do %>
+              <%= label_tag "Enter a name to search:" %>
+              <%= search_field_tag "search" %>
+              <%= submit_tag 'Search'%>
+            <% end %>
+                
+              
+        </div>
+
       </div>
     </div>
 </div>
 
-<div class="block level">
-  <div class="field has-addons">
-    <div class="control has-icons-left">
-      <span class="icon is-small is-left">
-        <i class="fas fa-search"></i>
-      </span>
-      <input type="text" class="input" placeholder="Search for user...">
+<div class="block">
+  <div class="columns">
+    <div class="column is-third"></div>
+
+    <div class="column is-third field has-addons">
+      <div class="control has-icons-left">
+        <span class="icon is-small is-left">
+          <i class="fas fa-search"></i>
+        </span>
+        <input type="text" class="input" placeholder="Search my contacts">
+      </div>
+      <div class="control">
+        <a href="#" class="button is-info">Search</a>
+      </div>
     </div>
-    <div class="control">
-      <a href="#" class="button is-info">Search</a>
-    </div>
-  </div>
+
+    <div class="column is-third"></div>
+  </div>  
 </div>
 
 <div class="container">
