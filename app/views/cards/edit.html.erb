@@ -1,59 +1,100 @@
-<h1>Cards#edit</h1>
-<p>Find me in app/views/cards/edit.html.erb</p>
+<h1 class="title is-2">Update Your Card!</h1>
+
 <%= form_for [@user, @card] do |form| %>
-    <p>
-        <%= form.label :name %>
-        <%= form.text_field :name %>
-    </p>
-    <p>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
-    </p>
-    <p>
-        <%= form.label :website %>
-        <%= form.text_field :website %>
-    </p>
-    <p>
-        <%= form.label :phone %>
-        <%= form.text_field :phone %>
-    </p>
-    <p>
-        <%= form.label :email %>
-        <%= form.text_field :email %>
-    </p>
-    <p>
-        <%= form.label :facebook %>
-        <%= form.text_field :facebook %>
-    </p>
-    <p>
-        <%= form.label :twitter %>
-        <%= form.text_field :twitter %>
-    </p>
-    <p>
-        <%= form.label :linkedin %>
-        <%= form.text_field :linkedin %>
-    </p>
-    <p>
-        <%= form.label :insta %>
-        <%= form.text_field :insta %>
-    </p>
-    <p>
-        <%= form.label :github %>
-        <%= form.text_field :github %>
-    </p>
-    <p>
-        <%= form.label :company %>
-        <%= form.text_field :company %>
-    </p>
-    <p>
-        <%= form.label :logo %>
-        <%= form.text_field :logo %>
-    </p>
-    <p>
-        <%= form.label :image %>
-        <%= form.text_field :image %>
-    </p>
-    <p>
-        <%= form.submit %>
-    </p>   
+    <label class="label">Name*Required*</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :name, class: 'form-control input', type:'text', placeholder: 'Name'%>
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
+    </div>
+    <label class="label">Email*Required*</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :email, class: 'form-control input', type:'email', placeholder: 'Email Input'%>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+    </div>
+    <label class="label">Phone*Required*</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :phone, class: 'form-control input', type:'text', placeholder: 'Phone Number'%>
+      <span class="icon is-small is-left">
+        <i class="fas fa-phone"></i>
+      </span>
+    </div>
+    <label class="label">Title</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :title, class: 'form-control input', type:'text', placeholder: 'Your Title'%>
+      <span class="icon is-small is-left">
+        <i class="fas fa-id-card"></i>
+      </span>
+    </div>
+    <label class="label">Company</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :company, class: 'form-control input', type:'text', placeholder: 'Company'%>
+      <span class="icon is-small is-left">
+        <i class="fas fa-building"></i>
+      </span>
+    </div>
+    <label class="label">Website</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :website, class: 'form-control input', type:'text', placeholder: 'Your Website'%>
+      <span class="icon is-small is-left">
+        <i class="fab fa-chrome"></i>
+      </span>
+    </div>
+    <label class="label">Facebook</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :facebook, class: 'form-control input', type:'text', placeholder: 'Facebook'%>
+      <span class="icon is-small is-left">
+        <i class="fab fa-facebook-square"></i>
+      </span>
+    </div>
+    <label class="label">Twitter</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :twitter, class: 'form-control input', type:'text', placeholder: 'Twitter'%>
+      <span class="icon is-small is-left">
+        <i class="fab fa-twitter"></i>
+      </span>
+    </div>
+    <label class="label">Linked In</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :linkedin, class: 'form-control input', type:'text', placeholder: 'Linked In'%>
+      <span class="icon is-small is-left">
+        <i class="fab fa-linkedin"></i>
+      </span>
+    </div>
+    <label class="label">Instagram</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :insta, class: 'form-control input', type:'text', placeholder: 'Instagram'%>
+      <span class="icon is-small is-left">
+        <i class="fab fa-instagram"></i>
+      </span>
+    </div>
+    <label class="label">Github</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :github, class: 'form-control input', type:'text', placeholder: 'Github'%>
+      <span class="icon is-small is-left">
+        <i class="fab fa-github"></i>
+      </span>
+    </div>
+    <label class="label">Logo</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :logo, class: 'form-control input', type:'text', placeholder: 'Logo URL'%>
+      <span class="icon is-small is-left">
+        <i class="fas fa-image"></i>
+      </span>
+    </div>
+    <label class="label">Image</label>
+    <div class="control has-icons-left">
+      <%= form.text_field :image, class: 'form-control input', type:'text', placeholder: 'Image URL'%>
+      <span class="icon is-small is-left">
+        <i class="fas fa-image"></i>
+      </span>
+    </div>
+    
+
+    <div>
+        <%= form.submit 'Update My Card', class:'button is-primary', style:'margin-top:20px;' %>
+    </div>  
 <% end %>

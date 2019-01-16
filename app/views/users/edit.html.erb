@@ -1,25 +1,39 @@
-<h1>Users#edit</h1>
-<p>Put the Edit User form in here</p>
-<%= form_for @user do |user| %>
-    <div>
-        <%= user.label :name %>
-        <%= user.text_field :name %>
-    </div>
-    <div>
-        <%= user.label :email %>
-        <%= user.text_field :email %>
-    </div>
-    <div>
-        <%= user.label :password %>
-        <%= user.password_field :password %>
-    </div>
-    <div>
-        <%= user.label :retype_password %>
-        <%= user.password_field :password_confirmation %>
-    </div>
-    <div>
-        <%= user.submit "Update My Profile" %>
-    </div>
-<% end %>
+<h1 class="title is-1">Edit Me!</h1>
+<%= form_for @user do |f| %>
+  <label class="label">Name</label>
+  <div class="control has-icons-left">
+    <%= f.text_field :name, class: 'form-control input', type:'text', placeholder: 'Name' %>
+    <span class="icon is-small is-left">
+      <i class="fas fa-user"></i>
+    </span>
+  </div>
 
-<%= link_to "Delete My Account", user_path, method: :delete, data: { confirm: "Are you sure you want to delete your account?" } %>
+  <label class="label">Email</label>
+  <div class="control has-icons-left">
+    <%= f.text_field :email, class: 'form-control input', type:'email', placeholder: 'Email Input'%>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+  </div>
+
+  <label class="label">Password</label>
+  <div class="control has-icons-left">
+    <%= f.password_field :password, class: 'form-control input', type:'password', placeholder: 'Password'%>
+    <span class="icon is-small is-left">
+      <i class="fas fa-key"></i>
+    </span>
+  </div>
+
+  <label class="label">Confirm Password</label>
+  <div class="control has-icons-left">
+    <%= f.password_field :password_confirmation, class: 'form-control input', type:'password', placeholder: 'Confirm Password'%>
+    <span class="icon is-small is-left">
+      <i class="fas fa-key"></i>
+    </span>
+  </div>
+
+  <div style="margin-top: 20px;">
+    <%= submit_tag 'Edit My Profile', class: 'button is-primary' %>
+    <%= link_to "Delete My Account", user_path, method: :delete, class: 'button is-danger',data: { confirm: "Are you sure you want to delete your account?" } %>
+  </div>
+<% end %>

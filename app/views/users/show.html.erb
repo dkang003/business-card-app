@@ -2,16 +2,35 @@
     <h1 class="title is-3"><%= current_user.name %>'s Profile</h1>
 </div>
 
-<div class="container">
+<div class="block">
     <h1 class="title is-5">My Business Card</h1>
-    <div class="container">
-        <% current_user.cards.first.attributes.each do |k, v|  %>
+    
+    <div class="block">
+      <div class="columns">
+        <div class="column is-4 box">
+          <% current_user.cards.first.attributes.each do |k, v| %>
             <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' %>
-                <%= k %>: <%= v %>
+               <p class="content is-small"><%= k.capitalize %>: <%= v %></p>
             <% end %>
-        <% end %>
-        <%= link_to "Edit My Info", edit_user_card_path(current_user.id, current_user.cards[0].id), class: 'button is-light' %>
+          <% end %>
+          <%= link_to "Edit My Info", edit_user_card_path(current_user.id, current_user.cards[0].id), class: 'button is-light content is-small' %>
+        </div>
+      </div>
     </div>
+</div>
+
+<div class="block level">
+  <div class="field has-addons">
+    <div class="control has-icons-left">
+      <span class="icon is-small is-left">
+        <i class="fas fa-search"></i>
+      </span>
+      <input type="text" class="input" placeholder="Search for user...">
+    </div>
+    <div class="control">
+      <a href="#" class="button is-info">Search</a>
+    </div>
+  </div>
 </div>
 
 <div class="container">
@@ -27,7 +46,21 @@
                 <% end %>
             <% end %>
             <%= link_to "View this card", user_card_path(current_user.id, card.id) %>
-            <% end %>
+        <% end %>
     <% end %>
+</div>
+
+<div class="block">
+  <div class="columns">
+    <div class="column is-third">
+      <p class="box">Card Here</p>
+    </div>
+    <div class="column">
+      <p class="box">Card Here</p>
+    </div>
+    <div class="column">
+      <p class="box">Card Here</p>
+    </div>  
+  </div>
 </div>
 
