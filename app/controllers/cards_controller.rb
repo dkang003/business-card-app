@@ -4,16 +4,21 @@ class CardsController < ApplicationController
   end
 
   def search 
-    search_term = params[:search]
-    @cards = Card.where(name: search_term).or(Card.where(email: search_term))
+    search_term = params[:search].downcase
+    @cards = Card.where("lower(name) LIKE ?", "%#{search_term}%").or(Card.where("lower(email) LIKE?", "%#{search_term}%"))
   end
 
   def add
     @card = Card.find(params[:id])
     @user = User.find(params[:user_id])
     @user.cards << @card
-    # binding.pry
     redirect_to user_path(@user)
+  end
+
+  def remove
+    # @card = Card.find(params[:id])
+    # @user = User.find(params[:user_id])
+    # @user.cards.delete(@card)
   end
 
   def new

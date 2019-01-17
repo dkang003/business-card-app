@@ -27,5 +27,6 @@ BCrypt | pry-rails
 ## Some problems I ran into:
 1. Getting the forms to work with Bulma took a lot of time
 2. Figuring out how to pass data to the form_for helpers in ERB, especially with the nested resources (Card#edit)
+3. Had trouble figuring out how to maniupulate form helpers in Rails (see card search view and route / new card view)
 
 ## Things I didn't get to do/finish:
