@@ -1,21 +1,25 @@
+<div class="block"
+<div class="columns block">
 <h1>Searched Cards</h1>
-<ul>
 <% if @cards.length == 0 %>
     <p>We couldn't find any cards that match.</p>
 <% else %>
     <% @cards.each do |card| %>
-        <div class="card">
+        <div class="card column is-4">
             <div class="card-image">
                 <figure class="image is-4by3">
-                <img src="<%= card.image %>" alt="Placeholder image">
+                    <img src="<%= card.image %>" alt="Placeholder image">
                 </figure>
             </div>
+
             <div class="card-content">
                 <div class="media">
                     <div class="media-left">
+                    <% if card.logo %>
                         <figure class="image is-48x48">
-                        <img src="<%= card.logo %>" alt="Placeholder image">
+                            <img src="<%= card.logo %>" alt="Placeholder image">
                         </figure>
+                    <% end %>
                     </div>
                     <div class="media-content">
                         <p class="title is-4"><%= card.name %></p>
@@ -25,14 +29,18 @@
 
                 <div class="content">
                 <% card.attributes.each do |k, v| %>
-                    <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' && k != 'image' %>
+                    <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' && k != 'image' && k != 'logo' %>
                        <p class="content is-small"><%= k.capitalize %>: <%= v %></p>
                     <% end %>
                 <% end %>
-                
+            
+                <%= link_to "Add to my contacts", controller: "cards", action: "add", id: card.id %>
                 </div>
             </div>
+
         </div>
     <% end %>
 <% end %>
-</ul>
+
+</div>
+</div>
