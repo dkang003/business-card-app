@@ -68,34 +68,48 @@
   </div>  
 </div>
 
-<div class="container">
-    <h1 class="title is-5">My Contacts</h1>
+<div class="block">
+<h1 class="title is-5">My Contacts</h1>
+<div class="columns block">
     <% if current_user.cards.length == 1 %>
-        <h2 class="subtitle is-6">You have no friends (Right now)</h2>
+      <h2 class="subtitle is-6">You have no friends (Right now)</h2>
     <% else %>  
-        <% current_user.cards.each do |card| %>
-            <% next if card == current_user.cards[0] %>
-            <% card.attributes.each do |k,v| %>
-                <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' %>
-                    <%= k %>: <%= v %>
-                <% end %>
+      <% current_user.cards.each do |card| %>
+      <% next if card == current_user.cards[0] %>
+      <div class="column is-third">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img src="<%= card.image %>" alt="Placeholder image">
+          </figure>
+        </div>
+            
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left">
+            <% if card.logo != "" %>
+              <figure class="image is-48x48">
+                  <img src="<%= card.logo %>" alt="Placeholder image">
+              </figure>
             <% end %>
-            <%= link_to "View this card", user_card_path(current_user.id, card.id) %>
-        <% end %>
+            </div>
+            <div class="media-content">
+              <p class="title is-4"><%= card.name %></p>
+              <p class="subtitle is-6"><%= card.email %></p>
+            </div>
+          </div>
+
+          <div class="content">
+          <% card.attributes.each do |k, v| %>
+            <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' && k != 'image' && k != 'logo' %>
+              <p class="content is-small"><%= k.capitalize %>: <%= v %></p>
+            <% end %>
+          <% end %>
+          </div>
+        </div>            
+      </div>
+        
+      <% end %>
     <% end %>
 </div>
-
-<div class="block">
-  <div class="columns">
-    <div class="column is-third">
-      <p class="box">Card Here</p>
-    </div>
-    <div class="column">
-      <p class="box">Card Here</p>
-    </div>
-    <div class="column">
-      <p class="box">Card Here</p>
-    </div>  
-  </div>
 </div>
 
