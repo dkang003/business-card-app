@@ -6,6 +6,7 @@ class CardsController < ApplicationController
   def search 
     search_term = params[:search].downcase
     @cards = Card.where("lower(name) LIKE ?", "%#{search_term}%").or(Card.where("lower(email) LIKE?", "%#{search_term}%"))
+    # binding.pry
   end
 
   def add

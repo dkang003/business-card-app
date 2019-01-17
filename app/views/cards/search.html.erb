@@ -1,43 +1,53 @@
 <div class="block"
 <div class="columns block">
-<h1>Searched Cards</h1>
+<div class="block">
+    <h1>Searched Cards</h1>
+</div>
 <% if @cards.length == 0 %>
     <p>We couldn't find any cards that match.</p>
 <% else %>
-    <% @cards.each do |card| %>
-        <div class="card column is-4">
-            <div class="card-image">
-                <figure class="image is-4by3">
-                    <img src="<%= card.image %>" alt="Placeholder image">
-                </figure>
-            </div>
-
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-left">
-                    <% if card.logo %>
-                        <figure class="image is-48x48">
-                            <img src="<%= card.logo %>" alt="Placeholder image">
+    <% @cards.in_groups_of(3).each do |row| %>
+        <div class="block">
+            <div class="three columns">
+            <% for card in row %>
+            <% if card %>
+                <div class="card column is-4">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="<%= card.image %>" alt="Placeholder image">
                         </figure>
-                    <% end %>
                     </div>
-                    <div class="media-content">
-                        <p class="title is-4"><%= card.name %></p>
-                        <p class="subtitle is-6"><%= card.email %></p>
-                    </div>
-                </div>
 
-                <div class="content">
-                <% card.attributes.each do |k, v| %>
-                    <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' && k != 'image' && k != 'logo' %>
-                       <p class="content is-small"><%= k.capitalize %>: <%= v %></p>
-                    <% end %>
-                <% end %>
-            
-                <%= link_to "Add to my contacts", controller: "cards", action: "add", id: card.id %>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-left">
+                            <% if card.logo %>
+                                <figure class="image is-48x48">
+                                    <img src="<%= card.logo %>" alt="Placeholder image">
+                                </figure>
+                            <% end %>
+                            </div>
+                            <div class="media-content">
+                                <p class="title is-4"><%= card.name %></p>
+                                <p class="subtitle is-6"><%= card.email %></p>
+                            </div>
+                        </div>
+
+                        <div class="content">
+                        <% card.attributes.each do |k, v| %>
+                            <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' && k != 'image' && k != 'logo' %>
+                            <p class="content is-small"><%= k.capitalize %>: <%= v %></p>
+                            <% end %>
+                        <% end %>
+                    
+                        <%= link_to "Add to my contacts", controller: "cards", action: "add", id: card.id %>
+                        </div>
+                    </div>
+
                 </div>
+            <% end %>
+            <% end %>
             </div>
-
         </div>
     <% end %>
 <% end %>
