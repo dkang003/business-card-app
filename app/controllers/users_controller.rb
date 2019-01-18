@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     @users = User.all
     if params[:id].to_i == current_user.id
       current_user
-
+      # binding.pry
     # protect routes when trying to access other users info while logged in
     else
       flash[:errors] = "Unauthorized"
