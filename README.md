@@ -4,7 +4,7 @@
 An app where users can exchange digital business cards (contact information) and keep track of people they have met.  This would ideally work on mobile.
 
 ## Technologies Used:
-HTML5 | CSS3 | Ruby | Ruby on Rails | Active Record | Git | Github | Trello | PostgreSQL | BCrypt | Bulma
+HTML5 | CSS3 | Ruby | Ruby on Rails | Active Record | Git | Github | Trello | PostgreSQL | BCrypt | Bulma | Heroku
 
 ## ERD
 ![Imgur](https://i.imgur.com/9sYxyl5.jpg)
@@ -39,10 +39,11 @@ Search Page
 2. Figuring out how to pass data to the form_for helpers in ERB, especially with the nested resources (Card#edit)
 3. Had trouble figuring out how to maniupulate form helpers in Rails (see card search view and route / new card view)
 4. Didn't get my ERD/associations right.  I had to re-associate models yesterday and had to re-wire all my links.
+5. Deploying to Heroku (Page not found)
 
 ## Things I didn't get to do/finish:
-1. Didn't get to finish the search bar for searching through the user's contacts
-2. Didn't get to implement a smart seach
-3. Didn't get to implement a function for users to upload their own image via AWS
-4. Didn't get to work on an infinity scroll
+1. Search bar for searching through the user's contacts
+2. Smart search
+3. Image upload AWS
+4. Infinity scroll
 5. Didn't get to connect my webcam for users to take picture and enter them into the system
