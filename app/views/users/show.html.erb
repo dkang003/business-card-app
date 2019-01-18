@@ -39,12 +39,18 @@
 
     <div class="column is-4"></div>
 
-    <div class="column is-4">
-      <%= form_tag(cards_search_path(current_user)) do %>
-        <%= label_tag "Enter a name to search:" %>
-        <%= search_field_tag "search" %>
-        <%= submit_tag 'Search'%>
-      <% end %>
+    <div class="column is-4 field has-addons">
+      <div class="control has-icons-left">
+        <span class="icon is-small is-left">
+          <i class="fas fa-search"></i>
+        </span>
+        <%= form_tag(cards_search_path(current_user)) do %>
+        <%= search_field_tag "search", nil, placeholder:"Search Contacts", class:"input" %>
+      </div>
+      <div class="control">
+        <%= submit_tag 'Search', class:"button is-info" %>
+      </div>
+        <% end %>
     </div>
   </div>
 </div>
