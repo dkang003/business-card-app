@@ -1,6 +1,6 @@
 <h1 class="title is-2">Update Your Card!</h1>
 
-<%= form_for [@user, @card] do |form| %>
+<%= form_for [@card] do |form| %>
     <label class="label">Name*Required*</label>
     <div class="control has-icons-left">
       <%= form.text_field :name, class: 'form-control input', type:'text', placeholder: 'Name'%>

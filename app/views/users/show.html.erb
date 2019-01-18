@@ -8,32 +8,33 @@
     <h1 class="title is-5">My Business Card</h1>
       <div class="card-image">
         <figure class="image is-4by3">
-          <img src="<%= current_user.cards[0].image %>" alt="Placeholder image">
+          <% @card = Card.find_by(user_id: current_user.id) %>
+          <img src="<%= @card.image %>" alt="Placeholder image">
         </figure>
       </div>
 
       <div class="media">
         <div class="media-left">
-        <% if current_user.cards.first.logo %>
+        <% if @card.logo %>
             <figure class="image is-48x48">
-                <img src="<%= current_user.cards.first.logo %>" alt="Placeholder image">
+                <img src="<%= @card.logo %>" alt="Placeholder image">
             </figure>
         <% end %>
         </div>
         <div class="media-content">
-            <p class="title is-4"><%= current_user.cards.first.name %></p>
-            <p class="subtitle is-6"><%= current_user.cards.first.email %></p>
+            <p class="title is-4"><%= @card.name %></p>
+            <p class="subtitle is-6"><%= @card.email %></p>
         </div>
       </div>
 
       <div class="content">
-      <% current_user.cards.first.attributes.each do |k, v| %>
+      <% @card.attributes.each do |k, v| %>
         <% if v != '' && k != 'created_at' && k != 'updated_at' && k != 'id' && k != 'user_id' && k != 'image' && k != 'logo' %>
           <p class="content is-small"><%= k.capitalize %>: <%= v %></p>
         <% end %>
       <% end %>
       </div>
-      <%= link_to "Edit My Card", edit_user_card_path(current_user.id, current_user.cards.first.id), class: 'button is-light' %>
+      <%= link_to "Edit My Card", edit_card_path(@card), class: 'button is-light' %>
     </div>
 
     <div class="column is-4"></div>
@@ -71,11 +72,11 @@
 <div class="block">
 <h1 class="title is-5">My Contacts</h1>
 <div class="columns block">
-    <% if current_user.cards.length == 1 %>
+    <% if current_user.cards.length == 0 %>
       <h2 class="subtitle is-6">You have no friends (Right now)</h2>
     <% else %>  
       <% current_user.cards.each do |card| %>
-      <% next if card == current_user.cards[0] %>
+      <% next if card == @card %>
       <div class="column is-third">
         <div class="card-image">
           <figure class="image is-4by3">
@@ -106,7 +107,7 @@
           <% end %>
           </div>
         </div>            
-        <%= link_to "Remove this Contact" %>
+        <%= link_to "Remove this Contact", card_path(card), method: :delete %>
       </div>
         
       <% end %>

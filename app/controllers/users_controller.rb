@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       # redirect to create the user's business card
-      redirect_to new_user_card_path(@user)
+      redirect_to new_card_path
     else
       flash[:errors] = "Unable to create your account, please try again."
       render :new

@@ -10,7 +10,7 @@
         <div class="block">
             <div class="three columns">
             <% for card in row %>
-            <% if card %>
+            <% if card && card != Card.find_by(user_id: current_user.id) %>
                 <div class="card column is-4">
                     <div class="card-image">
                         <figure class="image is-4by3">
