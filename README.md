@@ -4,7 +4,7 @@
 An app where users can exchange digital business cards (contact information) and keep track of people they have met.  This would ideally work on mobile.
 
 ## Technologies Used:
-HTML5 | CSS3 | Ruby | Ruby on Rails | Active Record | Git | Github | Trello | PostgreSQL | BCrypt | Bulma | Heroku
+HTML5 | CSS3 | Ruby | Ruby on Rails | Active Record | Javascript | Git | Github | Trello | PostgreSQL | BCrypt | Bulma | Heroku
 
 ## ERD
 ![Imgur](https://i.imgur.com/9sYxyl5.jpg)
