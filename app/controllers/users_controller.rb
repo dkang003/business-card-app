@@ -37,7 +37,9 @@ class UsersController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    Card.find_by(user_id: params[:id]).delete
     @user = User.find(params[:id])
+    @user.cards.delete_all
     @user.destroy
     redirect_to root_path
   end
