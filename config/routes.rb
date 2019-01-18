@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   resources :users 
-  # do
-  #   resources :cards
-  # end
+
   resources :cards
 
   post '/users/:user_id/cards/search' => 'cards#search', as: :cards_search

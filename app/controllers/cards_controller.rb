@@ -17,11 +17,12 @@ class CardsController < ApplicationController
     redirect_to user_path(@user)
   end
 
-  def remove
-    # @card = Card.find(params[:id])
+  # def remove
+    # binding.pry
+    # @card = Card.find_by(params[:id])
     # @user = User.find(params[:user_id])
     # @user.cards.delete(@card)
-  end
+  # end
 
   def new
     @user = User.find(current_user.id)
@@ -57,19 +58,18 @@ class CardsController < ApplicationController
   end
 
   def destroy
-    @card = User.find(params[:user_id]).cards.find(params[:id])
-    if @card == User.find(params[:user_id]).cards[0]
+    @card = current_user.cards.find_by(user_id: params[:id])
+
+    if @card.user_id == current_user.id
       flash[:errors] = "You can't delete your own card!"
       redirect_to user_path(params[:user_id])
     else
-      @card.destroy
-      redirect_to user_path(params[:user_id])
+      current_user.cards.delete(@card)
+      redirect_to user_path(current_user)
     end
   end
 
   def show
-    @card = User.find(params[:user_id]).cards.find(params[:id])
-    # redirect_to user_card_path(@card)
   end
 
   private
