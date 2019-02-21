@@ -9,15 +9,23 @@
       <div class="card-image">
         <figure class="image is-4by3">
           <% @card = Card.find_by(user_id: current_user.id) %>
-          <img src="<%= @card.image %>" alt="Placeholder image">
+          <% if @card.image!= "" %>
+            <img src="<%= @card.image %>" alt="Placeholder image">
+          <% else %>
+            <img src="https://www.qualiscare.com/wp-content/uploads/2017/08/default-user.png" alt="Placeholder image">
+          <% end %>
         </figure>
       </div>
 
       <div class="media" style="margin-top: 10px;">
         <div class="media-left">
-        <% if @card.logo %>
+        <% if @card.logo != "" %>
             <figure class="image is-48x48">
                 <img src="<%= @card.logo %>" alt="Placeholder image">
+            </figure>
+        <% else %>
+            <figure class="image is-48x48">
+              <img src="http://flockxchange.com/public/images/default-images/default-company-logo.jpg" alt="Placeholder image">
             </figure>
         <% end %>
         </div>
